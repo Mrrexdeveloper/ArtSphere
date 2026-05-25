@@ -1,0 +1,175 @@
+/* ═══════════════════════════════════════════
+   ARTSPHERE — upload.css
+   Artist portal & upload form styles
+═══════════════════════════════════════════ */
+
+.upload-section {
+  padding: 6rem 4rem;
+  background: var(--bg-3);
+  position: relative;
+  overflow: hidden;
+}
+.upload-section::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(201,168,76,0.06), transparent 70%);
+  pointer-events: none;
+}
+
+.upload-container {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 5rem;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Info Side */
+.upload-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+.upload-title {
+  font-family: var(--ff-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--text-1);
+  margin-bottom: 1.2rem;
+}
+.upload-title em { font-style: italic; color: var(--gold); }
+.upload-desc { color: var(--text-2); font-size: 1rem; line-height: 1.7; margin-bottom: 2rem; }
+.upload-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.upload-perks li {
+  color: var(--text-2);
+  font-size: 0.95rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.upload-perks li:last-child { border-bottom: none; }
+
+/* Form Card */
+.upload-form-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+}
+.form-title {
+  font-family: var(--ff-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-1);
+  margin-bottom: 1.5rem;
+}
+
+/* Dropzone */
+.upload-dropzone {
+  position: relative;
+  background: var(--surface);
+  border: 2px dashed var(--border-2);
+  border-radius: var(--r-lg);
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: var(--transition);
+  overflow: hidden;
+  cursor: pointer;
+}
+.upload-dropzone:hover, .upload-dropzone.drag-over {
+  border-color: var(--gold);
+  background: var(--gold-dim);
+}
+.dropzone-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-3);
+  font-size: 0.9rem;
+}
+.dropzone-icon { font-size: 2.5rem; }
+.dropzone-inner span { color: var(--text-3); }
+.art-preview {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  position: absolute; inset: 0;
+}
+
+/* Form Grid */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group.full { grid-column: 1 / -1; }
+.form-group label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+.form-input {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-1);
+  padding: 10px 14px;
+  border-radius: var(--r-sm);
+  font-size: 0.9rem;
+  transition: var(--transition);
+  width: 100%;
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.04);
+}
+.form-input::placeholder { color: var(--text-3); }
+.form-textarea { resize: vertical; min-height: 80px; line-height: 1.6; }
+select.form-input { cursor: pointer; }
+select.form-input option { background: var(--bg-card); }
+
+/* Success State */
+.form-success {
+  text-align: center;
+  padding: 2rem;
+  animation: cardIn 0.4s ease forwards;
+}
+.success-icon {
+  width: 60px; height: 60px;
+  background: rgba(46,204,143,0.15);
+  border: 2px solid var(--teal);
+  color: var(--teal);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto 1rem;
+}
+.form-success p { color: var(--text-1); font-weight: 600; margin-bottom: 1rem; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .upload-container { grid-template-columns: 1fr; gap: 3rem; }
+  .upload-section { padding: 4rem 1.5rem; }
+  .form-grid { grid-template-columns: 1fr; }
+}
